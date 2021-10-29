@@ -2,6 +2,12 @@
 
 A command line application that tells you what time is is for everyone on your team.
 
+## Installation
+
+``` bash
+go install github.com/t-eckert/teamtime
+```
+
 ## Usage
 
 Pass in a `JSON` file with your team members' names and their timezones.
