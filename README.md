@@ -4,10 +4,31 @@ A command line application that tells you what time is is for everyone on your t
 
 ## Usage
 
-Pass in a `TOML` file with your team members' names and their timezones.
+Pass in a `JSON` file with your team members' names and their timezones.
 
-``` toml
-[TeamTimes]
-Winona = ""
+``` json
+// teammembers.json
+[
+  {
+    "name": "John Doe",
+    "tz": "America/Los Angeles"
+  },
+  {
+    "name": "Jane Doe",
+    "tz": "America/New York"
+  }
+]
 ```
 
+``` bash
+teamtime teammembers.json
+```
+
+``` text
+╭──────────┬──────────────╮
+│ NAME     │ TIME         │
+├──────────┼──────────────┤
+│ John Doe │ 01:18 PM PDT │
+│ Jane Doe │ 04:18 PM EDT │
+╰──────────┴──────────────╯
+```
