@@ -67,7 +67,13 @@ func printTeamTime(teammembers []Teammember) error {
 		if err != nil {
 			return err
 		}
-		t.AppendRow(table.Row{tm.Name, now.In(tz).Format("03:04 PM MST")})
+
+		displayTime := now.In(tz).Format("03:04 PM MST")
+		if displayTime[0] == '0' {
+			displayTime = " " + displayTime[1:]
+		}
+
+		t.AppendRow(table.Row{tm.Name, displayTime})
 	}
 
 	t.Render()
